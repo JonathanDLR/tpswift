@@ -16,7 +16,12 @@ class Exercice: UIViewController, UITextFieldDelegate {
     @IBOutlet var stepperValue: UIStepper!
     var coordonneeARetenir: CGPoint!
     var xDebutDeplacement: CGFloat!
-
+    var positionX: CGFloat!
+    var positionY: CGFloat!
+    var stepWidth: CGFloat!
+    var stepHeight: CGFloat!
+    
+    
     override func viewDidLoad() {
         tfNombreEntre.delegate = self
         
@@ -80,22 +85,36 @@ class Exercice: UIViewController, UITextFieldDelegate {
     @objc func glisserDeposerStepper(sender: UIPanGestureRecognizer) {
         let step = sender.view!
         let coordonneesDuToucher = sender.location(in: self.view)
-        var xPosition = CGFloat()
-        var yPosition = CGFloat()
-        var stepWidth = CGFloat()
-        var stepHeight = CGFloat()
+        let nombreEntreInt = Int(tfNombreEntre.text!)
+        var newValue: Int
+       
         
         switch sender.state {
         case .began:
-            xPosition = step.frame.origin.x
-            yPosition = step.frame.origin.y
-            stepHeight = step.frame.size.height
-            stepWidth = step.frame.size.width
+            self.positionX = step.frame.origin.x
+            self.positionY = step.frame.origin.y
+            self.stepWidth = step.frame.size.width
+            self.stepHeight = step.frame.size.height
+            break
         case .changed:
             step.center = coordonneesDuToucher
         case .ended:
+            if nombreEntreInt != nil {
+                if step.frame.origin.x > self.positionX {
+                    newValue = nombreEntreInt! + 1
+                } else {
+                    newValue = nombreEntreInt! - 1
+                }
+            } else {
+                newValue = 1
+            }
+
+            tfNombreEntre.text = "\(newValue)"
+            stepperValue.value = Double(newValue)
+            slValue.value = Float(newValue)
             UIView.animate(withDuration: 0.5, animations: {
-                step.frame = CGRect(x: xPosition, y: yPosition, width: stepWidth, height: stepHeight)}
+                step.frame = CGRect(x: self.positionX, y: self.positionY, width: self.stepWidth, height: self.stepHeight)
+                }
             )
         case .possible:
             break
