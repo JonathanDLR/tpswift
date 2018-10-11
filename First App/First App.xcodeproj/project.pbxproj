@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD062699216B957900768A8F /* Parametres.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD062698216B957900768A8F /* Parametres.swift */; };
+		CD06269B216B9C3200768A8F /* Navigateur.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD06269A216B9C3200768A8F /* Navigateur.swift */; };
+		CD8CD9BF216B7E8100DCA995 /* Accueil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CD9BE216B7E8100DCA995 /* Accueil.swift */; };
+		CD8CD9C1216B884A00DCA995 /* CalculExercice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8CD9C0216B884A00DCA995 /* CalculExercice.swift */; };
 		CDBFE2432153A4F800C455B5 /* BoutonArrondi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBFE2422153A4F800C455B5 /* BoutonArrondi.swift */; };
 		CDCC4C6921528B0300CC6627 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCC4C6821528B0300CC6627 /* AppDelegate.swift */; };
 		CDCC4C6B21528B0300CC6627 /* Exercice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCC4C6A21528B0300CC6627 /* Exercice.swift */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD062698216B957900768A8F /* Parametres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parametres.swift; sourceTree = "<group>"; };
+		CD06269A216B9C3200768A8F /* Navigateur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigateur.swift; sourceTree = "<group>"; };
+		CD8CD9BE216B7E8100DCA995 /* Accueil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accueil.swift; sourceTree = "<group>"; };
+		CD8CD9C0216B884A00DCA995 /* CalculExercice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculExercice.swift; sourceTree = "<group>"; };
 		CDBFE2422153A4F800C455B5 /* BoutonArrondi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutonArrondi.swift; sourceTree = "<group>"; };
 		CDCC4C6521528B0300CC6627 /* First App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "First App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDCC4C6821528B0300CC6627 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +84,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD8CD9C2216B8BDB00DCA995 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CD8CD9C0216B884A00DCA995 /* CalculExercice.swift */,
+				CD8CD9BE216B7E8100DCA995 /* Accueil.swift */,
+				CDCC4C6A21528B0300CC6627 /* Exercice.swift */,
+				CD062698216B957900768A8F /* Parametres.swift */,
+				CD06269A216B9C3200768A8F /* Navigateur.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
 		CDCC4C5C21528B0300CC6627 = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +119,13 @@
 		CDCC4C6721528B0300CC6627 /* First App */ = {
 			isa = PBXGroup;
 			children = (
-				CDCC4C6821528B0300CC6627 /* AppDelegate.swift */,
-				CDCC4C6A21528B0300CC6627 /* Exercice.swift */,
-				CDCC4C6C21528B0300CC6627 /* Main.storyboard */,
-				CDCC4C6F21528B0500CC6627 /* Assets.xcassets */,
-				CDCC4C7121528B0600CC6627 /* LaunchScreen.storyboard */,
 				CDCC4C7421528B0600CC6627 /* Info.plist */,
+				CDCC4C6821528B0300CC6627 /* AppDelegate.swift */,
 				CDBFE2422153A4F800C455B5 /* BoutonArrondi.swift */,
+				CDCC4C6F21528B0500CC6627 /* Assets.xcassets */,
+				CD8CD9C2216B8BDB00DCA995 /* controllers */,
+				CDCC4C7121528B0600CC6627 /* LaunchScreen.storyboard */,
+				CDCC4C6C21528B0300CC6627 /* Main.storyboard */,
 			);
 			path = "First App";
 			sourceTree = "<group>";
@@ -260,7 +280,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDCC4C6B21528B0300CC6627 /* Exercice.swift in Sources */,
+				CD062699216B957900768A8F /* Parametres.swift in Sources */,
+				CD06269B216B9C3200768A8F /* Navigateur.swift in Sources */,
 				CDCC4C6921528B0300CC6627 /* AppDelegate.swift in Sources */,
+				CD8CD9C1216B884A00DCA995 /* CalculExercice.swift in Sources */,
+				CD8CD9BF216B7E8100DCA995 /* Accueil.swift in Sources */,
 				CDBFE2432153A4F800C455B5 /* BoutonArrondi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

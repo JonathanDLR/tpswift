@@ -21,8 +21,17 @@ class Exercice: UIViewController, UITextFieldDelegate {
     var stepWidth: CGFloat!
     var stepHeight: CGFloat!
     
+    var niveau: Int!
+    var calcul: CalculExercice!
+    
+    @IBOutlet var lTitle: UILabel!
+    @IBOutlet var lConsigne: UILabel!
+    
     
     override func viewDidLoad() {
+        
+        lTitle.text = calcul.titre
+        lConsigne.text = "\(calcul.consigne) = ?"
         tfNombreEntre.delegate = self
         
         slValue.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(longClicSurSlider)))
@@ -39,7 +48,7 @@ class Exercice: UIViewController, UITextFieldDelegate {
     
     @IBAction func clicSurFin(sender: UIButton) {
         if let resultat = tfNombreEntre.text, resultat != "" {
-            if Int(resultat) == 8 {
+            if Int(resultat) == calcul.reponse {
                 alert("Bravo", message: "4 + 4 = 8\nC'est une bonne réponse")
             } else {
                 alert("Faux", message: "Ce n'est pas la bonne réponse, réessayez!")
