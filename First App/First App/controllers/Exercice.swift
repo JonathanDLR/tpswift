@@ -46,10 +46,18 @@ class Exercice: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //ACTION LORS DU CLIC SUR DIDIWIN
+    
     @IBAction func clicSurFin(sender: UIButton) {
         if let resultat = tfNombreEntre.text, resultat != "" {
             if Int(resultat) == calcul.reponse {
-                alert("Bravo", message: "4 + 4 = 8\nC'est une bonne réponse")
+                let vv = VictoryView()
+                vv.alpha = 0
+                self.view.addSubview(vv)
+                UIView.animate(withDuration: 0.3, animations: {
+                    vv.alpha = 1
+                    })
+                // alert("Bravo", message: "4 + 4 = 8\nC'est une bonne réponse")
             } else {
                 alert("Faux", message: "Ce n'est pas la bonne réponse, réessayez!")
             }
@@ -75,11 +83,15 @@ class Exercice: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // MAJ DUN NOMBRE ENTREE SELON MOUVEMENT SLIDER
+    
     @IBAction func sliderMove(sender: UISlider) {
         let entier = Int(sender.value)
         tfNombreEntre.text = "\(entier)"
         stepperValue.value = Double(entier)
     }
+    
+    // MAJ DUN NOMBRE ENTREE SELON MOUVEMENT SLIDER
     
     @IBAction func stepperTouched(sender: UIStepper) {
         let entier = Int(sender.value)
@@ -91,13 +103,14 @@ class Exercice: UIViewController, UITextFieldDelegate {
         alert("Clic long", message: "Faire un long press ne sert à rien")
     }
     
+    // PERMET DE FAIRE BOUGER LE STEPPER
     @objc func glisserDeposerStepper(sender: UIPanGestureRecognizer) {
         let step = sender.view!
         let coordonneesDuToucher = sender.location(in: self.view)
         let nombreEntreInt = Int(tfNombreEntre.text!)
         var newValue: Int
        
-        
+        // RENVOI DU STEPPER A SON POS INITIALE + MAJ NOMBRE ENTREE
         switch sender.state {
         case .began:
             self.positionX = step.frame.origin.x
@@ -158,5 +171,17 @@ class Exercice: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+/**
+Description
+- Parameter ans: La reponse donnée
+- Return: le texte a afficher
+*/
+    func textForAnswer(ans: Int) -> String {
+        if ans == calcul.reponse {
+            return "Bravo!"
+        } else {
+            return "Dommage"
+        }
+    }
 }
 

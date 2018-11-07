@@ -1,0 +1,12 @@
+
+platform :ios, '10.13'
+use_frameworks!
+
+target 'First App' do
+
+pod "FBSDKCoreKit";
+pod "FBSDKLoginKit";
+pod "FBSDKShareKit";
+pod "FBSDKMessengerShareKit";
+
+end
